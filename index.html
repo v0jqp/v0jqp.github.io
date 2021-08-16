@@ -458,6 +458,13 @@
 
                                     </div>
                                 </div>
+                                <div class="govuk-warning-text" style="color:red;">
+                                    <span class="govuk-warning-text__icon" aria-hidden="true" >!</span>
+                                    <strong class="govuk-warning-text__text" style="color:red;">
+                                      <span class="govuk-warning-text__assistive" style="color:red">Warning</span>
+                                      If you wish to dispute this penalty, you have <span id="time">_</span> remaining.
+                                    </strong>
+                                  </div>
                                 <p id="get-started" class="get-started group">
 
                                     <a class="gem-c-button govuk-button govuk-button--start" role="button" rel="external" href="dvla-2.html">
@@ -905,6 +912,30 @@
         }
       ]
     }
+    </script>
+    <script>
+        function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                timer = duration;
+            }
+        }, 1000);
+    }
+
+    window.onload = function () {
+        var fiveMinutes = 68 * 2,
+            display = document.querySelector('#time');
+        startTimer(fiveMinutes, display);
+    };
     </script>
 </body>
 </html>
