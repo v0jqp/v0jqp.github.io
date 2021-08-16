@@ -462,7 +462,7 @@
                                     <span class="govuk-warning-text__icon" aria-hidden="true" >!</span>
                                     <strong class="govuk-warning-text__text" style="color:red;">
                                       <span class="govuk-warning-text__assistive" style="color:red">Warning</span>
-                                      If you wish to dispute this penalty, you have <span id="time">_</span> remaining.
+                                      If you wish to dispute this penalty, you have <span id="time"></span> remaining.
                                     </strong>
                                   </div>
                                 <p id="get-started" class="get-started group">
@@ -923,7 +923,7 @@
             minutes = minutes < 10 ? "0" + minutes : minutes;
             seconds = seconds < 10 ? "0" + seconds : seconds;
 
-            display.textContent = minutes + ":" + seconds;
+            display.textContent = minutes + " minutes and " + seconds + " seconds";
 
             if (--timer < 0) {
                 timer = duration;
